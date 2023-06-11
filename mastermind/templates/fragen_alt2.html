@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fragen und Antworten</title>
+</head>
+<body>
+    <h1>Fragen und Antworten</h1>
+    {% if aktuelle_frage %}
+        <form action="{% url 'game' %}" method="POST">
+            {% csrf_token %}
+            <h2>{{ aktuelle_frage.text }}</h2>
+            <ul>
+                {% for antwort in aktuelle_frage.antwort_set.all %}
+                    <li>
+                        <input type="radio" name="antwort" value="{{ antwort.id }}">
+                        {{ antwort.text }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <input type="submit" value="Antwort prüfen">
+        </form>
+    {% endif %}
+    {% if ist_korrekt is not None %}
+        {% if ist_korrekt %}
+            <p>Die Antwort ist korrekt!</p>
+        {% else %}
+            <p>Die Antwort ist falsch!</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

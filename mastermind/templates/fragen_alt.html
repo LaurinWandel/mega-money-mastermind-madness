@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fragen und Antworten</title>
+</head>
+<body>
+    <h1>Fragen und Antworten</h1>
+    {% for frage in fragen %}
+        <h2>{{ frage.text }}</h2>
+        <ul>
+            {% for antwort in frage.antwort_set.all %}
+                <li>{{ antwort.text }} {% if antwort.ist_korrekt %}(Korrekt){% endif %}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
