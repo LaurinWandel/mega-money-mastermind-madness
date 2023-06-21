@@ -9,7 +9,7 @@ def GamePage(request):
 
     # Initialisierung des Zählers
     if 'counter' not in request.session:
-        request.session['counter'] = 0
+        request.session['counter'] = 1
 
     if request.method == 'POST':
         antwort_id = request.POST.get('antwort')
@@ -21,6 +21,8 @@ def GamePage(request):
             request.session['counter'] = 0
         # Inkrementiere den Zähler
         request.session['counter'] += 1
+
+        print (request.session['counter'])
 
     # Alle Fragen außer bereits beantworteten Fragen abrufen
     unbeantwortete_fragen = fragen.exclude(id__in=[frage.id for frage in fragen if frage == aktuelle_frage])
