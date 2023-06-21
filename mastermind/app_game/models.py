@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,3 +16,10 @@ class Antwort(models.Model):
 
     def __str__(self):
         return self.text
+    
+class Benutzerstand(models.Model):
+    benutzername = models.ForeignKey(User, on_delete=models.CASCADE)
+    counterstand = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"Benutzer: {self.benutzername.username}, Counterstand: {self.counterstand}"

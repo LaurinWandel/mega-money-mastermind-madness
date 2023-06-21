@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Frage, Antwort
+from .models import Frage, Antwort, Benutzerstand
 import random
 
 def GamePage(request):
@@ -18,8 +18,17 @@ def GamePage(request):
         
         # Wenn die Antwort falsch ist, setze den Zähler zurück
         if not ist_korrekt:
+            if request.user.is_authenticated:
+                benutzerstand = Benutzerstand.objects.create(
+                    benutzername=request.user,
+                    counterstand=request.session['counter']
+                )
+                benutzerstand.save()
             request.session['counter'] = 0
-        # Inkrementiere den Zähler
+            benutzerstaende = Benutzerstand.objects.all()
+            for eintrag in benutzerstaende:
+                print(f"Benutzername: {eintrag.benutzername.username}, Counterstand: {eintrag.counterstand}")
+
         request.session['counter'] += 1
 
         print (request.session['counter'])
@@ -31,4 +40,4 @@ def GamePage(request):
         # Eine zufällige unbeantwortete Frage auswählen
         aktuelle_frage = random.choice(unbeantwortete_fragen)
 
-    return render(request, 'fragen.html', {'aktuelle_frage': aktuelle_frage, 'ist_korrekt': ist_korrekt, 'counter': request.session['counter']})
+    return render(request, 'game.html', {'aktuelle_frage': aktuelle_frage, 'ist_korrekt': ist_korrekt, 'counter': request.session['counter']})

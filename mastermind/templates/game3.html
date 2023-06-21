@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Game</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="{% static 'game.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="{% url 'game' %}" method="POST">
+        <h3 id="counter">{{ counter }}</h3>
+        {% csrf_token %}
+        {% if aktuelle_frage %}
+            <h2>{{ aktuelle_frage.text }}</h2>
+            <ul style="list-style: none; padding-left: 0;">
+                {% for antwort in aktuelle_frage.antwort_set.all %}
+                    <li>
+                        <button id="antwort_{{ antwort.id }}" type="submit" name="antwort" value="{{ antwort.id }}"
+                                data-ist-korrekt="{{ antwort.ist_korrekt }}">
+                            {{ antwort.text }}
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if ist_korrekt is not None %}
+            {% if ist_korrekt %}
+                <p>The answer is correct!</p>
+            {% else %}
+                <p>The answer is wrong!</p>
+            {% endif %}
+        {% endif %}
+        <a href="{% url 'home' %}" >Back to Menu</a>
+    </form>
+
+    <script src="{% static 'game.js' %}"></script>
+    
+</body>
+</html>
