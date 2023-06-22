@@ -51,6 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
             counterElement.textContent = myrValues[counterValue];
         }
     }
-
+    
 });
 

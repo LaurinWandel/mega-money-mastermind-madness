@@ -1,4 +1,4 @@
-/* login.css */
+/* highscores.css */
 
 *,
 *:before,
@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #09021b;
+    background-color: #080710;
 }
 .background{
     width: 430px;
@@ -18,45 +18,29 @@ body{
     left: 50%;
     top: 50%;
 }
-.background .shape {
+.background .shape{
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
-
-.shape:first-child {
-    background-image: url("/static/qmark_o.png");
-    background-size: cover;
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
     left: -80px;
     top: -80px;
-    transform: rotate(8deg) scale(0.95);
 }
-
-.background .shape:nth-child(2) {
-    background-image: url("/static/qmark_g.png");
-    background-size: cover;
-    right: -60px;
-    bottom: -90px;
-    transform: rotate(7deg) scale(0.95);
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
 }
-
-.background .shape:nth-child(3) {
-    background-image: url("/static/qmark_b.png");
-    background-size: cover;
-    left: -115px;
-    top: 230px;
-    transform: rotate(-10deg) scale(0.9);
-}
-
-.background .shape:nth-child(4) {
-    background-image: url("/static/qmark_p.png");
-    background-size: cover;
-    right: -100px;
-    top: 50px;
-    transform: rotate(12deg) scale(0.7);
-}
-
 form{
     height: 520px;
     width: 400px;
@@ -83,6 +67,7 @@ form h3{
     font-weight: 500;
     line-height: 42px;
     text-align: center;
+    margin-bottom: 25px; 
 }
 
 label{
@@ -106,14 +91,14 @@ input{
     color: #e5e5e5;
 }
 button{
-    margin-top: 50px;
+    margin-top: 70px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
     padding: 15px 0;
     font-size: 18px;
     font-weight: 600;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
 }
 .social{
@@ -137,4 +122,42 @@ button{
 }
 .social i{
   margin-right: 4px;
+}
+
+.button {
+  display: block;
+  margin-top: 40px;
+  width: 200px;
+  height: 50px;
+  background-color: #ffffff;
+  color: #080710;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 10px auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+ul li span {
+    margin-left: 10px;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; 
 }

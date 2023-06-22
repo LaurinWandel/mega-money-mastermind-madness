@@ -25,10 +25,7 @@ def GamePage(request):
                 )
                 benutzerstand.save()
             request.session['counter'] = 0
-            benutzerstaende = Benutzerstand.objects.all()
-            for eintrag in benutzerstaende:
-                print(f"Benutzername: {eintrag.benutzername.username}, Counterstand: {eintrag.counterstand}")
-
+            
         request.session['counter'] += 1
 
         print (request.session['counter'])

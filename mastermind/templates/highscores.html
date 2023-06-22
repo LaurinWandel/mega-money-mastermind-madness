@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Login Page</title>
+    <title>Highscore Page</title>
     <!--Stylesheet-->
-    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="{% static 'highscores.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
@@ -15,21 +16,24 @@
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
+    </div>
+    <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
     <form method="post">
-        <h3>Login Here</h3>
-        {% csrf_token %} 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Enter Username" id="username" name="username">
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="pass">
-
-        <button type="submit">Log In</button>
-
-        <a href="{% url 'register' %}" >Create an account</a>
+        <h3><p style="text-align: center;">Highscores</p></h3>
+        <ul>
+            {% for entry in top_10 %}
+            <li>
+                <span>{{ entry.1.username }}</span>
+                <span>{{ entry.0 }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="menu-container">
+            <a href="{% url 'home' %}" class="menu-link">Back to Menu</a>
+        </div>
     </form>
 </body>
 </html>

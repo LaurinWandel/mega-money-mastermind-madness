@@ -19,12 +19,13 @@ from app_register.views import RegisterPage
 from app_login.views import LoginPage
 from app_home.views import HomePage
 from app_game.views import GamePage
+from app_highscores.views import HighscoresPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',RegisterPage, name='register'),
     path('login/',LoginPage, name='login'),
     path('home/',HomePage, name='home'),
-    
     path('game/', GamePage, name='game'),
+    path('highscores/', HighscoresPage, name='highscores'),
 ]

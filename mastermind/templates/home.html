@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Login Page</title>
+    <title>Home Page</title>
     <!--Stylesheet-->
     <link rel="stylesheet" href="{% static 'home.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
@@ -25,7 +25,7 @@
         <h3><p style="text-align: center;">Welcome to Malaysian Mega Money Mastermind Madness</p></h3>
         
         <a  href="{% url 'game' %}" class="button">Play Game</a>
-        <a  class="button">HighScores</a>
+        <a  href="{% url 'highscores' %}" class="button">HighScores</a>
     </form>
 </body>
 </html>
