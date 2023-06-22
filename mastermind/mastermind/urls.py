@@ -20,6 +20,7 @@ from app_login.views import LoginPage
 from app_home.views import HomePage
 from app_game.views import GamePage
 from app_highscores.views import HighscoresPage
+from app_profil.views import ProfilPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('home/',HomePage, name='home'),
     path('game/', GamePage, name='game'),
     path('highscores/', HighscoresPage, name='highscores'),
+    path('profil/', ProfilPage, name='profil'),
 ]

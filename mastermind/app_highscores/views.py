@@ -53,9 +53,3 @@ def HighscoresPage(request):
     converted_top_10 = [(convert_counterstand(bs.counterstand), bs.benutzername) for bs in top_10]
     context = {'top_10': converted_top_10}
     return render(request, 'highscores.html', context)
-
-
-#def HighscoresPage(request):
-#    top_10 = Benutzerstand.objects.order_by('-counterstand')[:10]
-#    context = {'top_10': top_10}
-#    return render(request, 'highscores.html', context)

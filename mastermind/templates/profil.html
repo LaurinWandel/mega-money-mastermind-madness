@@ -4,9 +4,9 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
-    <title>Home Page</title>
+    <title>Profil Page</title>
     <!--Stylesheet-->
-    <link rel="stylesheet" href="{% static 'home2.css' %}">
+    <link rel="stylesheet" href="{% static 'profil.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -20,11 +20,21 @@
         <div class="shape"></div>
     </div>
     <form method="post">
-        <h3><p style="text-align: center;">Welcome to Malaysian Mega Money Mastermind Madness</p></h3>
-        
-        <a  href="{% url 'game' %}" class="button">Play Game</a>
-        <a  href="{% url 'highscores' %}" class="button">HighScores</a>
-        <a  href="{% url 'profil' %}" class="button">Profil</a>
+        {% csrf_token %}
+        <h3><p style="text-align: center;">Profil</p></h3>
+        <h4><p><strong>E-Mail:</strong> {{ email }}</p></h4>
+        <h4><p><strong>Username:</strong> {{ username }}</p></h4>
+
+        <h5>Change Username</h5>
+        <input type="text" name="new_username" placeholder="New Username">
+        <button type="submit" name="update_username">Change</button>
+
+        <h6>Delete Username</h6>
+        <button type="submit" name="delete_user">Delete</button>
+
+        <div class="menu-container">
+            <a href="{% url 'home' %}" class="menu-link">Back to Menu</a>
+        </div>
     </form>
 </body>
 </html>
