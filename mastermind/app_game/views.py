@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Frage, Antwort, Benutzerstand
 import random
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login')
 def GamePage(request):
     fragen = Frage.objects.all()
     aktuelle_frage = None

@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from app_game.models import Benutzerstand
 
-# Create your views here.
-
 def convert_counterstand(counterstand):
     conversion_table = {
     1: '0 MYR',
