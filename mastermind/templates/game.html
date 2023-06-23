@@ -6,12 +6,15 @@
     <title>Game Page</title>
     <!--Stylesheet-->
     <link rel="stylesheet" href="{% static 'game.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
@@ -30,11 +33,24 @@
         {% endif %}
         {% if ist_korrekt is not None %}
             {% if ist_korrekt %}
-                <p id="answer-message" data-is-correct="True">The awnser is correct!</p>
+                <script>
+                    var form = document.querySelector("form");
+                    form.classList.add("correct-answer");
+                    setTimeout(function() {
+                        form.classList.remove("correct-answer");
+                    }, 1000);
+                </script>
             {% else %}
-                <p id="answer-message" data-is-correct="False">The awnser is wrong!</p>
+                <script>
+                    var form = document.querySelector("form");
+                    form.classList.add("wrong-answer");
+                    setTimeout(function() {
+                        form.classList.remove("wrong-answer");
+                    }, 1000);
+                </script>
             {% endif %}
         {% endif %}
+    
         <a href="{% url 'home' %}" >Back to Menu</a>
     </form>
 

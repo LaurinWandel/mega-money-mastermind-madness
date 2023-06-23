@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from app_register.views import RegisterPage
 from app_login.views import LoginPage
-from app_home.views import HomePage
+from app_home.views import HomePage, logout_view
 from app_game.views import GamePage
 from app_highscores.views import HighscoresPage
 from app_profil.views import ProfilPage
@@ -30,4 +30,5 @@ urlpatterns = [
     path('game/', GamePage, name='game'),
     path('highscores/', HighscoresPage, name='highscores'),
     path('profil/', ProfilPage, name='profil'),
+    path('logout/', logout_view, name='logout'),
 ]

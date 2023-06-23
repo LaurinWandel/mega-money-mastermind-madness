@@ -135,3 +135,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static')
+
+# Login redirect URL
+LOGIN_URL = 'login'
