@@ -1,8 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 
-# Create your views here.
-
 def RegisterPage(request):
     if request.method=='POST':
         uname = request.POST.get('username')
@@ -19,7 +17,5 @@ def RegisterPage(request):
             my_user = User.objects.create_user(uname,email,pword1)
             my_user.save()
             return redirect('login')
-
-        #print(uname, email, pword1, pword2)
 
     return render (request, 'register.html')

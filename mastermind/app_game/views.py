@@ -9,7 +9,7 @@ def GamePage(request):
     aktuelle_frage = None
     ist_korrekt = None
 
-    # Initialisierung des Zählers
+    # Init counter
     if 'counter' not in request.session:
         request.session['counter'] = 1
 
@@ -18,7 +18,7 @@ def GamePage(request):
         antwort = Antwort.objects.get(id=antwort_id)
         ist_korrekt = antwort.ist_korrekt
         
-        # Wenn die Antwort falsch ist, setze den Zähler zurück
+        # reset counter if awnser wrong
         if not ist_korrekt:
             if request.user.is_authenticated:
                 benutzerstand = Benutzerstand.objects.create(

@@ -159,3 +159,7 @@ button {
     margin-right: 4px;
 }
 
+form h2 {
+    font-size: 20px;
+    text-align: center;
+}

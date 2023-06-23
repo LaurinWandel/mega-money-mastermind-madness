@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from app_game.models import Benutzerstand
+from django.contrib.auth.decorators import login_required
 
 def convert_counterstand(counterstand):
     conversion_table = {
@@ -46,6 +47,7 @@ def convert_counterstand(counterstand):
     }
     return conversion_table.get(counterstand, 0)  # Rückgabe von 0, falls der Wert nicht in der Tabelle vorhanden ist
 
+@login_required(login_url='login')
 def HighscoresPage(request):
     top_10 = Benutzerstand.objects.order_by('-counterstand')[:10]
     converted_top_10 = [(convert_counterstand(bs.counterstand), bs.benutzername) for bs in top_10]

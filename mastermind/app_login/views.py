@@ -1,8 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
 
-# Create your views here.
-
 def LoginPage(request):
     if request.method=='POST':
         uname = request.POST.get('username')
