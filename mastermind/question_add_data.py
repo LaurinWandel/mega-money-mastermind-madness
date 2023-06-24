@@ -679,6 +679,12 @@ def daten_einfuegen():
     Antwort.objects.create(frage=frage112, text='Walter Scheel', ist_korrekt=False)
     Antwort.objects.create(frage=frage112, text='Kuhn', ist_korrekt=False)
 
+    userfrage = Frage.objects.create(text='Where is the church with the worlds highest church tower?')
+    Antwort.objects.create(frage=userfrage, text='Ulm', ist_korrekt=True)
+    Antwort.objects.create(frage=userfrage, text='Köln', ist_korrekt=False)
+    Antwort.objects.create(frage=userfrage, text='Bamberg', ist_korrekt=False)
+    Antwort.objects.create(frage=userfrage, text='Hamburg', ist_korrekt=False)
+
     print("Daten erfolgreich eingefügt.")
 
 if __name__ == '__main__':
