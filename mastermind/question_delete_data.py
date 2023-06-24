@@ -10,7 +10,7 @@ django.setup()
 # Importiere das Modell, das du verwenden möchtest
 from app_game.models import Frage, Antwort
 
-def daten_loeschen():
+def delete_questions():
     # Lösche alle Fragen und Antworten aus der Datenbank
     Frage.objects.all().delete()
     Antwort.objects.all().delete()
@@ -18,4 +18,4 @@ def daten_loeschen():
     print("Daten erfolgreich gelöscht.")
 
 # Führe die Funktion aus, um die Daten zu löschen
-daten_loeschen()
+delete_questions()

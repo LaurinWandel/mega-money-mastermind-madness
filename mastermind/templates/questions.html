@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question Page</title>
+    <link rel="stylesheet" href="{% static 'questions.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNJN1PF3CS"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXX');
+    </script>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <h3><p style="text-align: center;">Add Question</p></h3>
+
+        <h5>Add Question</h5>
+        <input type="text" name="new_question" placeholder="Question">
+
+        <div style="display: flex;">
+            <input type="text" name="new_answer1" placeholder="Answer 1">
+            <input type="checkbox" name="answer1_correct"> 
+        </div>
+
+        <div style="display: flex;">
+            <input type="text" name="new_answer2" placeholder="Answer 2">
+            <input type="checkbox" name="answer2_correct"> 
+        </div>
+
+        <div style="display: flex;">
+            <input type="text" name="new_answer3" placeholder="Answer 3">
+            <input type="checkbox" name="answer3_correct"> 
+        </div>
+
+        <div style="display: flex;">
+            <input type="text" name="new_answer4" placeholder="Answer 4">
+            <input type="checkbox" name="answer4_correct"> 
+        </div>
+
+        <button type="submit" name="add_question">Add Question</button>
+
+        <div class="menu-container">
+            <a href="{% url 'home' %}" class="menu-link">Back to Menu</a>
+        </div>
+    </form>
+</body>
+</html>

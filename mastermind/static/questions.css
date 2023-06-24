@@ -1,4 +1,4 @@
-/* home.css */
+/* questions.css */
 
 *,
 *:before,
@@ -78,14 +78,6 @@ form *{
     outline: none;
     border: none;
 }
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: -20px;
-}
 
 label{
     display: block;
@@ -108,7 +100,7 @@ input{
     color: #e5e5e5;
 }
 button{
-    margin-top: 70px;
+    margin-top: 15px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -143,9 +135,9 @@ button{
 
 .button {
   display: block;
-  margin-top: 120px;
-  width: 300px;
-  height: 50px;
+  margin-top: 5px;
+  width: 200px;
+  height: 5px;
   background-color: #ffffff;
   color: #080710;
   text-align: center;
@@ -154,12 +146,55 @@ button{
   font-weight: 600;
   border-radius: 5px;
   text-decoration: none;
-  margin: 15px auto;
+  margin: 10px auto;
 }
 
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    margin-bottom: 10px;
+    margin-top: -20px;
+    text-align: center;
+}
+
+form h4 {
+    text-align: center;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 5px;
+}
+
+form h5 {
+    font-size: 14px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+form h6 {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: -12px;
+}
 
 .menu-container {
     display: flex;
     justify-content: center;
-    margin-top: 15px; 
+    margin-top: 5px; 
+}
+
+input[type="text"] {
+    display: block;
+    height: 50px;
+    width: 350%; 
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+input[name="new_question"] {
+    width: 100%; 
 }
