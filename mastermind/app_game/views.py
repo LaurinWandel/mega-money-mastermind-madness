@@ -42,8 +42,6 @@ def GamePage(request):
 
     # Exclude answered questions from the queryset
     unbeantwortete_fragen = fragen.exclude(id__in=beantwortete_fragen_ids)
-    print(unbeantwortete_fragen)
-    print(len(unbeantwortete_fragen))
 
     if not unbeantwortete_fragen:
         # Reset the answered questions list
