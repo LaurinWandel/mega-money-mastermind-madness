@@ -1,9 +1,11 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Signup Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.62">
     <link rel="stylesheet" href="{% static 'register.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -46,6 +48,15 @@
         <button type="submit">Signup</button>
         
         <a href="{% url 'login' %}" >i have an account</a>
+
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        
     </form>
 </body>
 </html>

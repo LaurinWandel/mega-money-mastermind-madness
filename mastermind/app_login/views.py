@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 
 def LoginPage(request):
     if request.method=='POST':
@@ -11,6 +12,6 @@ def LoginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            return HttpResponse("Username or Password is wrong")
+            messages.error(request,"Username or Password is wrong")
 
     return render (request, 'login.html')
