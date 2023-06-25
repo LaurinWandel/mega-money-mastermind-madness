@@ -13,6 +13,10 @@ def GamePage(request):
     if 'counter' not in request.session:
         request.session['counter'] = 1
 
+     # Get IDs of answered questions from session
+    beantwortete_fragen_ids = request.session.get('beantwortete_fragen_ids', [])
+
+
     if request.method == 'POST':
         antwort_id = request.POST.get('antwort')
         antwort = Antwort.objects.get(id=antwort_id)
@@ -32,8 +36,22 @@ def GamePage(request):
 
         print (request.session['counter'])
 
-    # Alle Fragen außer bereits beantworteten Fragen abrufen
-    unbeantwortete_fragen = fragen.exclude(id__in=[frage.id for frage in fragen if frage == aktuelle_frage])
+        # Add answered question ID to the list in session
+        beantwortete_fragen_ids.append(antwort.frage.id)
+        request.session['beantwortete_fragen_ids'] = beantwortete_fragen_ids
+
+    # Exclude answered questions from the queryset
+    unbeantwortete_fragen = fragen.exclude(id__in=beantwortete_fragen_ids)
+    print(unbeantwortete_fragen)
+    print(len(unbeantwortete_fragen))
+
+    if not unbeantwortete_fragen:
+        # Reset the answered questions list
+        beantwortete_fragen_ids = []
+        request.session['beantwortete_fragen_ids'] = beantwortete_fragen_ids
+
+        # Add all questions to unanswered questions
+        unbeantwortete_fragen = fragen
 
     if unbeantwortete_fragen:
         # Eine zufällige unbeantwortete Frage auswählen
