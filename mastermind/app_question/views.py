@@ -27,7 +27,6 @@ def QuestionPage(request):
         antwort4 = Antwort.objects.create(frage=frage, text=new_answer4, ist_korrekt=answer4_correct)
 
         # Speichern der Informationen in das Textdokument
-        # Speichern der Informationen in das Textdokument
         file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'question_user_data.txt')
         with open(file_path, 'a') as file:
             file.write(f"userfrage = Frage.objects.create(text='{new_question}')\n")
